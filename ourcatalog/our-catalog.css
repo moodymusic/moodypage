@@ -1,0 +1,417 @@
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://i.imgur.com/4SEl0LN.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+    color: #ffffff;
+}
+
+.logo img {
+    max-width: 250px;
+    filter: invert(1);
+    display: block;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 10px); /* Keeps the dropdown hanging a bit lower */
+    left: 0;
+    background-color: #1f1f1f; /* Darker background for a sleek look */
+    min-width: 250px; /* Slightly wider for better spacing */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Enhance shadow for depth */
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px 0; /* Uniform padding inside the dropdown */
+    transform: translateY(-10px); /* Subtle upward shift for animation */
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* Slide down */
+}
+
+.dropdown-content li {
+    list-style: none;
+    border-bottom: 1px solid #444444; /* Lighter border for separation */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a {
+    color: #e2e2e2; /* Softer white for text */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #333333; /* Darker hover background */
+    padding-left: 24px;
+    color: #ffffff; /* Brighten text color on hover */
+}
+
+.dropdown-content a::before {
+    content: '→'; /* Add an arrow icon before each link */
+    padding-right: 10px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.dropdown-content a:hover::before {
+    opacity: 1;
+    transform: translateX(0); /* Slide in the arrow on hover */
+}
+
+/* Title Box with Animation */
+.title-box {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* More opaque background */
+    padding: 30px;
+    max-width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0; /* Square corners */
+    opacity: 0; /* Initially invisible */
+    transform: translateX(-50px); /* Start position for the slide-in effect */
+    animation: fadeInLeft 1.5s ease-out forwards; /* Apply animation */
+}
+
+.title-box h1 {
+    font-size: 2.5rem; /* Larger text */
+    margin: 0;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+.listen-now-btn {
+    font-size: 1rem;
+    padding: 7px 14px;
+    background-color: transparent; /* Make the button background transparent */
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    border-radius: 3px; /* Reduce roundness of the corners */
+    border: 2px solid #ffffff; /* White square outline */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    align-self: flex-start; /* Align the button to the left */
+}
+
+.listen-now-btn:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #000000; /* Black text on hover */
+}
+
+/* Main Content */
+main {
+    margin-top: 100vh; /* Start below the fold */
+    background-color: #000000d3;
+    color: #333333;
+    padding: 40px 20px;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(50px); /* Blurring effect */
+    -webkit-backdrop-filter: blur(50px); /* Blurring effect for Safari/older browsers */
+}
+
+/* Popular Section Label */
+.popular-section-label h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+
+.popular-section-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.popular-section-content .song-item {
+    width: calc(10% - 10px); /* Allows 10 items per row with some spacing */
+    margin: 5px;
+    position: relative;
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .popular-section-content .song-item {
+        width: calc(20% - 10px); /* Adjust to 5 items per row with some spacing */
+    }
+}
+
+.song-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Set the aspect ratio to 1:1 for the image */
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border-radius: 1px; /* Initial border radius */
+    transition: outline 0.3s ease; /* Smooth transition for outline and border radius */
+}
+
+/* Apply white outline effect on hover for the image */
+.song-item:hover {
+    outline: 2px solid white; /* Add a white outline on hover */
+}
+
+.song-item p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+/* Remove underline from links */
+.song-item a {
+    text-decoration: none; /* Removes underline */
+}
+/* All Releases Section Label */
+.all-releases-section-label h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 10px;
+}
+
+/* All Releases Content */
+.all-releases-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: flex-start; /* Align items to start of the row */
+    align-items: flex-start;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.all-releases-content .song-item {
+    width: calc(20% - 10px); /* Allows 10 items per row with some spacing */
+    margin: 5px;
+    position: relative;
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .all-releases-content .song-item {
+        width: calc(33.33% - 10px); /* 3 items per row */
+    }
+}
+
+/* Catalog Content */
+.page-label {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+
+.meta-line {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ffffff;
+    margin: 10px 0;
+}
+
+.page-label .meta {
+    font-size: 1.5rem; /* Adjust font size for meta */
+    color: #ffffff;
+    margin: 0;
+}
+
+catalog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+catalog-content p {
+    margin-bottom: 20px;
+}
+/* Playlist Section */
+.playlist-section {
+    margin-top: 40px;
+    padding: 20px 50px;
+
+}
+
+.playlist-section h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.playlist-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    gap: 20px; /* Space between items */
+}
+
+.playlist-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-item iframe {
+    width: 100%; /* Full width of the grid item */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px; /* Rounded corners */
+}
+/* Footer */
+footer {
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 50px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.8rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Scrolling Effect */
+body::before {
+    content: "";
+    display: block;
+    height: 100vh; /* Full height of the viewport */
+}
+
+main {
+    animation: scrollUp 0s ease-out forwards;
+}
+
+@keyframes scrollUp {
+    to {
+        margin-top: 60px; /* Adjust to match header height */
+    }
+}
+
+/* Fade-in Left Animation */
+@keyframes fadeInLeft {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateX(0); /* End position */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title-box h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .article-header h1 {
+        font-size: 2rem;
+    }
+}

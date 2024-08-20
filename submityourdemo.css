@@ -1,0 +1,224 @@
+/* Apply background image to the home page */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('assets/sm7b.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff; /* White text for readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+    color: #ffffff;
+}
+
+.logo img {
+    max-width: 250px;
+    filter: invert(1);
+    display: block;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    background-color: #333333;
+    border-radius: 4px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: calc(100% + 10px); /* Keeps the dropdown hanging a bit lower */
+    left: 0;
+    background-color: #1f1f1f; /* Darker background for a sleek look */
+    min-width: 250px; /* Slightly wider for better spacing */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); /* Enhance shadow for depth */
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px 0; /* Uniform padding inside the dropdown */
+    transform: translateY(-10px); /* Subtle upward shift for animation */
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* Slide down */
+}
+
+.dropdown-content li {
+    list-style: none;
+    border-bottom: 1px solid #444444; /* Lighter border for separation */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a {
+    color: #e2e2e2; /* Softer white for text */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.dropdown-content a:hover {
+    background-color: #333333; /* Darker hover background */
+    padding-left: 24px;
+    color: #ffffff; /* Brighten text color on hover */
+}
+
+.dropdown-content a::before {
+    content: '→'; /* Add an arrow icon before each link */
+    padding-right: 10px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.dropdown-content a:hover::before {
+    opacity: 1;
+    transform: translateX(0); /* Slide in the arrow on hover */
+}
+
+/* Remove any previously applied transform or animation from the main CSS */
+.demo {
+    padding: 60px 50px;
+    color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0; /* Start with invisible content */
+    animation: none; /* Remove any animation inherited from the main CSS */
+    animation: fadeInDown 2.0s ease-in-out forwards; /* Apply the downward fade-in animation */
+    transform: none; /* Reset any inherited transform property */
+}
+
+/* Animation for fading in from top to bottom */
+@keyframes fadeInDown {
+    from {
+        opacity: 0.1;
+        transform: translateY(-50px); /* Start content 50px above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move content to its original position */
+    }
+}
+
+.demo h1 {
+    font-size: 3rem;
+    margin-top: 190px;
+    margin-bottom: 20px;
+}
+
+.demo p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Style for Submit Demo Now Button */
+.submit-demo-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000; /* Text color */
+    background-color: #ffffff; /* Button background color */
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition for color */
+}
+
+.submit-demo-btn:hover {
+    background-color: #000000; /* Darker background on hover */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Footer */
+footer {
+    background-color: black; /* Black footer to match the header */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 50px;
+    margin-top: auto; /* Push the footer to the bottom */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8rem; /* Decrease footer text size */
+}
+
+footer a {
+    color: #ffffff; /* White text for readability */
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 0.8rem; /* Decrease footer link text size */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+main {
+    animation: fadeInDown 1.5s ease-in-out forwards; /* Apply the downward fade-in animation */
+    opacity: 0; /* Ensure the element is hidden before the animation */
+    animation-fill-mode: forwards; /* Keep the final state after the animation */
+}
+
+/* Separator Line */
+hr {
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.2); /* Light separator line */
+    margin: 40px 0; /* Space around the separator */
+}
